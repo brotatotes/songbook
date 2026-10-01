@@ -2346,7 +2346,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--quiet); }
         '<span class="tool"><span class="lbl">Size</span><button class="step" data-act="smaller" aria-label="Smaller text">A\u2212</button><button class="step" data-act="bigger" aria-label="Larger text">A+</button></span>' +
         '<span class="right"><button class="btn link" data-act="dark" aria-pressed="' + isDark() + '">' + (isDark() ? 'Light' : 'Dark') + '</button>' +
         '<button class="btn link" data-act="print">Print</button><a class="btn link" href="#/edit/' + encodeURIComponent(path) + '">Edit</a></span></div>' +
-        '<p class="sub small summary" id="summary">' + esc(summary) + (extra ? ' \u00b7 ' + esc(extra) : '') + (prefs.semis ? ' \u00b7 <button class="btn link" data-act="reset">original key ' + esc(pretty(key0 || '')) + '</button>' : '') + '</p>' +
+        '<p class="sub small summary" id="summary">' + [summary ? esc(summary) : '', extra ? esc(extra) : '', prefs.semis ? '<button class="btn link" data-act="reset">original key ' + esc(pretty(key0 || '')) + '</button>' : ''].filter(Boolean).join(' \u00b7 ') + '</p>' +
         '<div class="sheetbody' + (r.lines > 48 ? ' long' : '') + '" id="sheetbody" style="--size:' + SIZES[sizeIdx()] + 'rem">' + r.html + '</div>';
       sheetKey = shapeKey;
     }
